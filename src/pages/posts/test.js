@@ -32,6 +32,7 @@ function PostIndex() {
         //assign response data to state "posts"
         setPosts(data);
     }
+
     return (
         <Container className="mt-3">
             <Row>
