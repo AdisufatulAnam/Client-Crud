@@ -54,7 +54,10 @@ function PostIndex() {
                                             <td>{ index + 1 }</td>
                                             <td>{ post.title }</td>
                                             <td>{ post.content }</td>
-                                            <td className="text-center"></td>
+                                            <td className="text-center">
+                                            <Button as={Link} to={`posts/edit/${post.id}`} variant='primary' size='sm' className='me-2'>EDIT</Button>
+                                            </td>
+                                           
                                         </tr>
                                     )) }
                                 </tbody>
