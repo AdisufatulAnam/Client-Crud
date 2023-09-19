@@ -32,10 +32,19 @@ function PostIndex() {
         //assign response data to state "posts"
         setPosts(data);
     }
+    //gunsi untuk dalete data
+    const deletePost = async (id) => {
+        //sending
+        await axios.delete(`http://localhost:3000/api/posts/delete/${id}`);
+
+        //panggil function fetch data
+        fectData();
+
+    }
     return (
         <Container className="mt-3">
             <Row>
-                <Col md="{12}">
+                <Col md={12}>
                     <Card className="border-0 rounded shadow-sm">
                         <Card.Body>
                             <Button as={Link} to="/posts/create" variant="success" className="mb-3">TAMBAH POST</Button>
@@ -56,6 +65,7 @@ function PostIndex() {
                                             <td>{ post.content }</td>
                                             <td className="text-center">
                                             <Button as={Link} to={`posts/edit/${post.id}`} variant='primary' size='sm' className='me-2'>EDIT</Button>
+                                            <Button onClick={()=> deletePost(post.id)} variant='danger' size='sm'>DELETE</Button>
                                             </td>
                                            
                                         </tr>
